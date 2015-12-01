@@ -40,9 +40,6 @@ private:
 	TextureManager() {}
 	~TextureManager() {}
 
-	//	TextureManager(const TextureManager&);
-	//	TextureManager& operator=(const TextureManager&);
-
 	std::map<std::string, SDL_Texture*> m_textureMap;
 
 	static TextureManager* s_pInstance;

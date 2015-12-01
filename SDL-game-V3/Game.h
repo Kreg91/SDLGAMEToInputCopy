@@ -41,15 +41,7 @@ public:
 		return s_pInstance;
 	}
 
-	//GameObject m_go; // obiekt klasy GameObject
-	//Player m_player; // obiekt klasy player::gameobject
 
-					 //	GameObject m_go2_pointer;
-					 //	GameObject m_player2_pointer;
-
-//	GameObject* m_go2_pointer;
-//	GameObject* m_player2_pointer;
-//	GameObject* m_enemy; // first enemy added with polimophism
 
 	std::vector<GameObject*> m_gameObjects;
 
@@ -69,9 +61,6 @@ private:
 	SDL_Rect m_destinationRectangle; // another rectangle
 
 	int m_currentFrame;
-
-	//singleton jest nie moze byc tutaj zdelklarowane takie cos
-	//TextureManager m_textureManager;
 
 	bool m_bRunning;
 };

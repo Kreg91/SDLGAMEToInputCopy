@@ -13,15 +13,7 @@ void Enemy::draw()
 {
 	SDLGameObject::draw(); // we now use SDLGameObject
 }
-/*
-//version without Vector2D class
-void Enemy::update()
-{
-	m_x -= 1;
-	m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
-}
-//version without Vector2d class END
-*/
+
 //version with Vector 2D
 void Enemy::update()
 {

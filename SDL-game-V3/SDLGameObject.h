@@ -8,8 +8,8 @@ class SDLGameObject : public GameObject
 public:
 	SDLGameObject(const LoaderParams* pParams);
 	virtual void draw();
-	virtual void update();//chwilowo wylaczone
-	virtual void clean();// chwilowo wylaczone bo virtual i szaleje
+	virtual void update();
+	virtual void clean();
 protected:
 	int m_x; //to delete via Vector2D is menaging x coordinats
 	int m_y; //to delete via Vector2D is menaging y coordinats

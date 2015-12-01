@@ -3,22 +3,6 @@
 #include "TextureManager.h"
 #include "Game.h"
 
-/*
-//version without vector2D
-SDLGameObject::SDLGameObject(const LoaderParams* pParams) :
-	GameObject(pParams)
-{
-	m_x = pParams->getX();
-	m_y = pParams->getY();
-	m_width = pParams->getWidth();
-	m_height = pParams->getHeight();
-	m_textureID = pParams->getTextureID();
-	m_currentRow = 1;
-	m_currentFrame = 1;
-}
-//version without vector2D END
-*/
-
 //version with Vector2D wersja z updatem velocity w konstruktorze
 SDLGameObject::SDLGameObject(const LoaderParams* pParams) :GameObject(pParams), m_position(pParams->getX(), pParams ->getY()), m_velocity(0, 0), m_acceleration(0, 0)
 {
@@ -29,19 +13,6 @@ SDLGameObject::SDLGameObject(const LoaderParams* pParams) :GameObject(pParams), 
 	m_currentFrame = 1;
 }
 //version with Vector2D END
-
-
-
-/*
-//version without vector2D
-void SDLGameObject::draw()
-{
-	TextureManager::Instance()->drawFrame(m_textureID, m_x, m_y,	m_width, m_height, m_currentRow, m_currentFrame,	TheGame::Instance()->getRenderer());
-	//std::cout << "SDLgameobject renderuje drawuje" << std::endl;
-}
-//version without vector2D END
-*/
-
 
 //version with Vector 2D
 void SDLGameObject::draw()

@@ -60,28 +60,16 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 		return false; // SDL init fail
 	}
 
-	// inicjalizacja INPUTOW
-	//TheInputHandler::Instance()->initialiseJoysticks(); //inicjalizacja joya
-
-
-
-	//inicjalizacjia INPUTOW END
-
-	// to load the Texture Manager Singleton
-
-
-	// to load the Texture Manager Singleton END
+	
 
 	// load texture to be used by the m_gameObjects
 	if (!TheTextureManager::Instance()->load("assets/animate-alpha.png", "animate", m_pRenderer))
 	{
 		return false;
 	}
-	
 
-	// inicjalizacja obiektow z polimorphizmem END************************************
-	
-
+	//make a gameObject and push it on a vector list of objects
+	//Initializae Gameobjects
 	m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82,	"animate")));
 	m_gameObjects.push_back(new Enemy(new LoaderParams(200, 200, 128, 82, "animate")));
 	m_gameObjects.push_back(new Player(new LoaderParams(300, 300, 128, 82, "animate")));
@@ -126,42 +114,21 @@ void Game::update()
 {
 	m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
 
-
-	//m_go.update(); // update gameobjectu
-	//m_player.update(); //update playera
-
-					   //LOOP trough GameOBjects polimorphism START
-					   // loop through and update our objects
+					 
+  // loop through and update our objects
 	
-	for (std::vector<GameObject*>::size_type i = 0; i !=
-		m_gameObjects.size(); i++)
+	for (std::vector<GameObject*>::size_type i = 0; i !=m_gameObjects.size(); i++)
 	{
 		m_gameObjects[i]->update();
 	}
 	
-	//LOOP trough GameOBjects polimorphism END
+	//LOOP trough GameOBjects END
 
 }
 // end version with TextureManager
 
 void Game::handleEvents()
 {
-	//version before INPUTS
-	/*
-	SDL_Event event;
-	if (SDL_PollEvent(&event))
-	{
-		switch (event.type)
-		{
-		case SDL_QUIT:
-			m_bRunning = false;
-			break;
-		default:
-			break;
-		}
-	}
-	*/ // version before INPUTS END
-
 	TheInputHandler::Instance()->update();
 }
 
@@ -190,5 +157,8 @@ void Game::draw()
 
 void Game::quit()
 {
-
+	//click X on window and SDL_Quit
+	SDL_Delay(500);
+	// clean up SDL
+	SDL_Quit();
 }
